@@ -1,0 +1,29 @@
+{
+  "name": "react-image-markup",
+  "version": "0.1.0",
+  "description": "Highlight and draw shapes on images",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mvasigh/react-image-markup.git"
+  },
+  "author": "Mehdi Vasigh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mvasigh/react-image-markup/issues"
+  },
+  "homepage": "https://github.com/mvasigh/react-image-markup#readme",
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3"
+  }
+}
