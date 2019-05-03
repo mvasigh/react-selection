@@ -1,12 +1,15 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Markup } from './src/lib';
+import { Panzoom, Markup } from './src/lib';
 import './index.css';
-
-const IMAGE_SRC = 'https://cdn.spacetelescope.org/archives/images/wallpaper2/heic1509a.jpg';
+import cat from './cat.jpg';
 
 const App = props => {
-  return <Markup src={IMAGE_SRC} />;
+  return (
+    <Panzoom maxZoom={2} minZoom={0.2}>
+      <img src={cat} draggable={false} />
+    </Panzoom>
+  );
 };
 
 render(<App />, document.getElementById('app'));
