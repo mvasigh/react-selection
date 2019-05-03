@@ -2,7 +2,8 @@
   "name": "react-image-markup",
   "version": "0.1.0",
   "description": "Highlight and draw shapes on images",
-  "main": "index.js",
+  "main": "src/lib/index.js",
+  "module": "src/lib/index.js",
   "directories": {
     "test": "test"
   },
