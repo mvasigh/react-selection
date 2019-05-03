@@ -1,16 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useGesture } from 'react-use-gesture';
 import { useSpring, animated, config, interpolate } from 'react-spring';
 
-const limit = (max, min, scale) => {
-  if (scale > max) {
-    return max;
-  } else if (scale < min) {
-    return min;
-  } else {
-    return scale;
-  }
-};
+const limit = (max, min, scale) => (scale > max ? max : scale < min ? min : scale);
 
 const Panzoom = ({ children, maxZoom = 8, minZoom = 0.2 }) => {
   const [{ xy, scale }, set] = useSpring(() => ({
@@ -25,8 +18,7 @@ const Panzoom = ({ children, maxZoom = 8, minZoom = 0.2 }) => {
     onWheel: ({ xy: [, y], previous: [, lastY] }) => {
       let s = scale.getValue();
       let diff = -(y - lastY);
-      let newScale = s + (diff / 50) * s;
-      set({ scale: limit(maxZoom, minZoom, newScale) });
+      set({ scale: limit(maxZoom, minZoom, s + (diff / 50) * s) });
     }
   });
 
@@ -52,6 +44,11 @@ const Panzoom = ({ children, maxZoom = 8, minZoom = 0.2 }) => {
       </animated.div>
     </div>
   );
+};
+
+Panzoom.propTypes = {
+  minZoom: PropTypes.number,
+  maxZoom: PropTypes.number
 };
 
 export default Panzoom;
