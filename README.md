@@ -1,4 +1,4 @@
-# react-image-markup
+# react-markup
 
 Highlight and display annotations on a child component. 
 
