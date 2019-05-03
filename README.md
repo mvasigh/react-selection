@@ -1,6 +1,6 @@
 # react-image-markup
 
-Pan, zoom, and annotate images. Built using [`react-spring`](https://react-spring.io).
+Highlight and display annotations on a child component. 
 
 ### Commands
 
