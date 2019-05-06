@@ -1,14 +1,25 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Panzoom, Markup } from './src/lib';
+import { Markup } from './src/lib';
 import './index.css';
-import cat from './cat.jpg';
+
+const Box = () => (
+  <div
+    style={{
+      height: '600px',
+      width: '600px',
+      background: 'salmon'
+    }}
+  >
+    Mark me up
+  </div>
+);
 
 const App = props => {
   return (
-    <Panzoom maxZoom={2} minZoom={0.2}>
-      <img src={cat} draggable={false} />
-    </Panzoom>
+    <Markup onSelect={selection => console.log(selection)}>
+      <Box />
+    </Markup>
   );
 };
 
