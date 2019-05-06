@@ -17,7 +17,7 @@ const Markup = ({ children, onSelect = () => {} }) => {
 
   const handleCanvasRef = ctx => {
     context.current = ctx;
-    requestAnimationFrame(() => draw());
+    requestAnimationFrame(draw);
   };
 
   const select = useGesture({
@@ -41,7 +41,7 @@ const Markup = ({ children, onSelect = () => {} }) => {
       ctx.strokeRect(x, y, w, h);
     }
 
-    requestAnimationFrame(() => draw());
+    requestAnimationFrame(draw);
   }
 
   return (
