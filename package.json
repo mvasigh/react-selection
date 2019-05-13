@@ -1,5 +1,5 @@
 {
-  "name": "react-selection",
+  "name": "@mvasigh/react-selection",
   "version": "0.1.0",
   "description": "Grab an area of a component tree and get selection coordinates",
   "main": "src/lib/index.js",
