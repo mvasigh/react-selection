@@ -1,5 +1,5 @@
 {
-  "name": "@mvasigh/react-selection",
+  "name": "react-selection",
   "version": "0.1.0",
   "description": "Grab an area of a component tree and get selection coordinates",
   "main": "src/lib/index.js",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mvasigh/react-image-markup.git"
+    "url": "git+https://github.com/mvasigh/react-selection.git"
   },
   "author": "Mehdi Vasigh",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mvasigh/react-image-markup/issues"
+    "url": "https://github.com/mvasigh/react-selection/issues"
   },
-  "homepage": "https://github.com/mvasigh/react-image-markup#readme",
+  "homepage": "https://github.com/mvasigh/react-selection#readme",
   "dependencies": {
     "react-use-gesture": "^5.0.0"
   },
