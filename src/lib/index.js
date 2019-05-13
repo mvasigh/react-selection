@@ -1,3 +1,3 @@
-import Markup from './Markup';
+import Selection from './Selection';
 
-export { Markup };
+export { Selection };

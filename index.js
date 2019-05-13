@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Markup } from './src/lib';
+import { Selection } from './src/lib';
 import './index.css';
 
 const Box = () => (
@@ -17,9 +17,9 @@ const Box = () => (
 
 const App = props => {
   return (
-    <Markup onSelect={selection => console.log(selection)}>
+    <Selection onSelect={selection => console.log(selection)}>
       <Box />
-    </Markup>
+    </Selection>
   );
 };
 
