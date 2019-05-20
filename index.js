@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { render } from 'react-dom';
 import { Selection } from './src/lib';
 import './index.css';
@@ -16,10 +16,19 @@ const Box = () => (
 );
 
 const App = props => {
+  const [paused, setPaused] = useState(false);
+
+  const togglePause = () => setPaused(!paused);
+
   return (
-    <Selection onSelect={selection => console.log(selection)}>
-      <Box />
-    </Selection>
+    <React.Fragment>
+      <Selection paused={paused} onSelect={selection => console.log(selection)}>
+        <Box />
+      </Selection>
+      <div>
+        <button onClick={togglePause}>{paused ? 'Resume' : 'Pause'}</button>
+      </div>
+    </React.Fragment>
   );
 };
 
