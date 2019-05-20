@@ -17,7 +17,7 @@ const SelectionArea = React.forwardRef((props, ref) => (
   </div>
 ));
 
-const Selection = ({ onSelect = () => {}, ...props }) => {
+const Selection = ({ onSelect = () => {}, paused = false, ...props }) => {
   const area = useRef();
   const context = useRef();
   const selection = useRef();
@@ -35,6 +35,7 @@ const Selection = ({ onSelect = () => {}, ...props }) => {
 
   const select = useGesture({
     onDrag: ({ initial, delta }) => {
+      if (paused) return;
       let [startX, startY] = initial;
       let [deltaX, deltaY] = delta;
 
@@ -56,7 +57,8 @@ const Selection = ({ onSelect = () => {}, ...props }) => {
 
       selection.current = [startX, startY, deltaX, deltaY];
     },
-    onDragEnd: state => {
+    onDragEnd: () => {
+      if (paused) return;
       let [startX, startY, deltaX, deltaY] = selection.current;
       if (deltaX === 0 || deltaY === 0) return; // prevent firing on click
 
@@ -102,7 +104,8 @@ const Selection = ({ onSelect = () => {}, ...props }) => {
 };
 
 Selection.propTypes = {
-  onSelect: PropTypes.func
+  onSelect: PropTypes.func,
+  paused: PropTypes.bool
 };
 
 export default Selection;
