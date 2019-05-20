@@ -2,13 +2,14 @@
   "name": "@mvasigh/react-selection",
   "version": "0.1.0",
   "description": "Grab an area of a component tree and get selection coordinates",
-  "main": "src/lib/index.js",
-  "module": "src/lib/index.js",
-  "directories": {
-    "test": "test"
-  },
+  "main": "index.js",
   "scripts": {
-    "dev": "parcel index.html"
+    "dev": "parcel index.html",
+    "build": "rollup -c rollup.config.js",
+    "release": "yarn build && release --src=build --push",
+    "release:major": "yarn release - --major",
+    "release:minor": "yarn release - --minor",
+    "release:patch": "yarn release - --patch"
   },
   "repository": {
     "type": "git",
@@ -30,7 +31,12 @@
     "pretty-quick": "^1.10.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "rollup": "^1.12.3",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^10.0.0",
+    "rollup-plugin-node-resolve": "^5.0.0",
+    "yarn-release": "^1.9.2"
   },
   "peerDependencies": {
     "prop-types": "^15.7.0",
