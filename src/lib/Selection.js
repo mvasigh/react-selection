@@ -9,7 +9,8 @@ const SelectionArea = React.forwardRef((props, ref) => (
   <div
     ref={ref}
     style={{
-      display: 'inline-block'
+      display: 'inline-block',
+      position: 'relative'
     }}
     {...props}
   >
@@ -30,7 +31,7 @@ const Selection = ({ onSelect = () => {}, paused = false, ...props }) => {
 
   const handleCanvasRef = ctx => {
     context.current = ctx;
-    requestAnimationFrame(() => draw());
+    requestAnimationFrame(draw);
   };
 
   const select = useGesture({
@@ -90,15 +91,15 @@ const Selection = ({ onSelect = () => {}, paused = false, ...props }) => {
       ctx.strokeRect(x, y, w, h);
     }
 
-    requestAnimationFrame(() => draw());
+    requestAnimationFrame(draw);
   }
 
   return (
     <>
       <SelectionArea {...props} ref={area} {...select()}>
         {props.children}
+        <PureCanvas width={w} height={h} contextRef={handleCanvasRef} />
       </SelectionArea>
-      <PureCanvas width={w} height={h} contextRef={handleCanvasRef} />
     </>
   );
 };
